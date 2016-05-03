@@ -69,7 +69,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
 " Plugin for easy navigating in the current buffer
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
+
+" A simpler version of easymotion that only applies to the current line
+Plugin 'joequery/Stupid-EasyMotion'
 
 " Plugin for ctags outline (visually see the program outline)
 Plugin 'majutsushi/tagbar'
@@ -92,6 +95,15 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugins for nicer copying/pasting
 " Plugin 'tpope/vim-repeat'
 " Plugin 'svermeulen/vim-easyclip'
+
+" Plugin to provide syntax highlighting for React JSX files
+Plugin 'mxw/vim-jsx'
+
+" Plugin for autocompletion
+Plugin 'vim-scripts/AutoComplPop'
+
+" Plugin for go langauge
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -139,6 +151,8 @@ nnoremap <buffer> -p :call pdv#DocumentWithSnip()<CR>
 let g:syntastic_php_checkers = ["php","phpcs"]
 "let g:syntastic_gjslint_exec = '~/.local/bin/gjslint'
 let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 "let g:syntastic_javascript_gjslint_args = '--max_line_length 120'
 " The highlighting makes it difficult to find the cursor
 let g:syntastic_enable_highlighting = 0
