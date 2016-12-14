@@ -75,7 +75,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'joequery/Stupid-EasyMotion'
 
 " Plugin for ctags outline (visually see the program outline)
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 
 " Plugin for autocompleting tags in xml/html documents
 Plugin 'sukima/xmledit'
@@ -103,7 +103,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'vim-scripts/AutoComplPop'
 
 " Plugin for go langauge
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
+
+" Plugin for improved undo w/ history
+Plugin 'mbbill/undotree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -223,5 +226,11 @@ nnoremap <expr> o getline('.') =~ '^\s*//' ? 'o<esc>S' : 'o'
 " For better pasting (so vim doesn't try to format what you're pasting)
 set pastetoggle=<F2>
 
+if has("persistent_undo")
+  set undodir=~/.vim/undo/
+  set undofile
+endif
+
 "Highlight the current word
 nnoremap <space> viw
+colorscheme wombat256i
