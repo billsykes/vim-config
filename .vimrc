@@ -106,7 +106,7 @@ Plugin 'vim-scripts/AutoComplPop'
 "Plugin 'fatih/vim-go'
 
 " Plugin for improved undo w/ history
-Plugin 'mbbill/undotree'
+"Plugin 'mbbill/undotree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
