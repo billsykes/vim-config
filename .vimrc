@@ -194,9 +194,10 @@ endfunction
 " The following 2 commands will allow for saving undo history even after
 " switching buffers--by default you lose history when you switch buffers
 " Tell it to use an undo file
-set undofile
-" set a directory to store the undo history
-set undodir=~/.vimundo/
+if has("persistent_undo")
+  set undodir=~/.vim/undo/
+  set undofile
+endif
 
 " turn on relative numbers
 set relativenumber
@@ -225,11 +226,6 @@ nnoremap <expr> o getline('.') =~ '^\s*//' ? 'o<esc>S' : 'o'
 
 " For better pasting (so vim doesn't try to format what you're pasting)
 set pastetoggle=<F2>
-
-if has("persistent_undo")
-  set undodir=~/.vim/undo/
-  set undofile
-endif
 
 "Highlight the current word
 nnoremap <space> viw
