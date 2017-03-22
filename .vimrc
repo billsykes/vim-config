@@ -1,4 +1,4 @@
-"VUNDLE
+" Vundle setup ------- {{{
 set nocompatible              " be iMproved, required
 set backspace=2               " fix for backspace issues
 filetype off                  " required
@@ -12,10 +12,12 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" }}}
+
+" Plugin setup ----------- {{{
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -69,10 +71,10 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 
 " Plugin for easy navigating in the current buffer
-"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " A simpler version of easymotion that only applies to the current line
-Plugin 'joequery/Stupid-EasyMotion'
+"Plugin 'joequery/Stupid-EasyMotion'
 
 " Plugin for ctags outline (visually see the program outline)
 Plugin 'majutsushi/tagbar'
@@ -105,6 +107,11 @@ Plugin 'vim-scripts/AutoComplPop'
 " Plugin for go langauge
 Plugin 'fatih/vim-go'
 
+" Plugin for TypeScript
+Plugin 'leafgarland/typescript-vim'
+" }}}
+
+" Vundle cleanup ------- {{{
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -119,14 +126,16 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" }}}
 
-" Related to tabs and spacing
+" Related to tabs and spacing ------ {{{
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" }}}
 
-" Syntax highlighting
+" Syntax highlighting & autocomplete --- {{{
 "set syntax on
 syntax on
 
@@ -136,7 +145,9 @@ set number
 " Make vim's auto-complete behave like bash
 set wildmenu
 set wildmode=list:longest
+" }}}
 
+" PHPDoc setup ------ {{{
 " Setting up keys for PHPDoc plugin bound to Control-P
 "autocmd FileType php inoremap <C-p> <ESC>:call PhpDocSingle()<CR>i
 "autocmd FileType php nnoremap <C-p> :call PhpDocSingle()<CR>
@@ -145,8 +156,9 @@ set wildmode=list:longest
 "nnoremap <buffer> <C-p> :call pdv#DocumentCurrentLine()<CR>
 let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
 nnoremap <buffer> -p :call pdv#DocumentWithSnip()<CR>
+" }}}
 
-" Syntastic plugin
+" Syntastic setup ------ {{{
 "let g:syntastic_python_python_exec = '~/bin/python'
 let g:syntastic_php_checkers = ["php","phpcs"]
 "let g:syntastic_gjslint_exec = '~/.local/bin/gjslint'
@@ -156,8 +168,9 @@ let g:syntastic_javascript_checkers = ['jshint']
 "let g:syntastic_javascript_gjslint_args = '--max_line_length 120'
 " The highlighting makes it difficult to find the cursor
 let g:syntastic_enable_highlighting = 0
+" }}}
 
-" Ctrl-P plugin settings to ignore files
+" Ctrl-P plugin settings to ignore files --- {{{
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*\\node_modules\\*,*\\bower_components\\*,*\\reports\\*
@@ -167,7 +180,12 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 0
 let g:ctrlp_max_files = 30000
 
-" ------- The following block is for making NERDTree follow the current buffer
+" Reset the CtrlP cache
+nnoremap <Leader>pc :CtrlPClearAllCaches<CR>
+
+" }}}
+
+" The following block is for making NERDTree follow the current buffer {{{
 "
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()
@@ -186,42 +204,71 @@ endfunction
 " Highlight currently open buffer in NERDTree
 " autocmd BufEnter * call SyncTree()"
 
-" ---------- END BLOCK ------------
+" NERDTree focus on current buffer
+nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
 
-" The following 2 commands will allow for saving undo history even after
+" }}}
+
+" The following 2 commands will allow for saving undo history even after {{{
 " switching buffers--by default you lose history when you switch buffers
 " Tell it to use an undo file
 set undofile
 " set a directory to store the undo history
 set undodir=~/.vimundo/
+" }}}
 
-" turn on relative numbers
-set relativenumber
+" Easymotion setup -------- {{{
 
 "map <Leader> <Plug>(easymotion-prefix)
+
+" }}}
+
+" Handlebars setup ------ {{{
 
 " Force handlebars template files to be interpreted as html
 au BufNewFile,BufRead *.hbs set filetype=html
 
-" NERDTree focus on current buffer
-nnoremap <Leader>nf :NERDTreeFind<CR>
-nnoremap <Leader>nt :NERDTreeToggle<CR>
+" }}}
 
-" Reset the CtrlP cache
-nnoremap <Leader>pc :CtrlPClearAllCaches<CR>
+" UtiliSnips settings -------- {{{
 
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 
-" Disable automatic comment insertion of // but not /* */
+" }}}
+
+" Disable automatic comment insertion of // but not /* */ {{{
+
 inoremap <expr> <enter> getline('.') =~ '^\s*//' ? '<enter><esc>S' : '<enter>'
 nnoremap <expr> O getline('.') =~ '^\s*//' ? 'O<esc>S' : 'O'
 nnoremap <expr> o getline('.') =~ '^\s*//' ? 'o<esc>S' : 'o'
+
+" }}}
+
+" Miscellaneous improvements -------- {{{
+
+" turn on relative numbers
+set relativenumber
 
 " For better pasting (so vim doesn't try to format what you're pasting)
 set pastetoggle=<F2>
 
 "Highlight the current word
 nnoremap <space> viw
+
+" Make jk in insert mode equivalent to hitting escape
+inoremap jk <esc>l
+
+" }}}
+
+" Vimscript file settings -------------- {{{
+
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" }}}
