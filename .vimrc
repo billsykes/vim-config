@@ -37,19 +37,19 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'danro/rename.vim'
 
 " PHPDoc plugin
-Bundle 'tobyS/pdv'
+"Bundle 'tobyS/pdv'
 
 " git plugin
 Plugin 'tpope/vim-fugitive'
 
 " Plugin that the above PHPDoc plugin uses
-Plugin 'tobyS/vmustache'
+"Plugin 'tobyS/vmustache'
 
 " Snippets plugin
 Plugin 'SirVer/ultisnips'
 
 " Multi-language debugger
-Plugin 'joonty/vdebug.git'
+"Plugin 'joonty/vdebug.git'
 
 " Multi-language syntax checking
 Plugin 'scrooloose/syntastic'
@@ -66,25 +66,25 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 
 " Plugin for ack
-Plugin 'mileszs/ack.vim'
+"Plugin 'mileszs/ack.vim'
 
 " Plugin for easy navigating in the current buffer
 "Plugin 'Lokaltog/vim-easymotion'
 
 " A simpler version of easymotion that only applies to the current line
-Plugin 'joequery/Stupid-EasyMotion'
+"Plugin 'joequery/Stupid-EasyMotion'
 
 " Plugin for ctags outline (visually see the program outline)
 "Plugin 'majutsushi/tagbar'
 
 " Plugin for autocompleting tags in xml/html documents
-Plugin 'sukima/xmledit'
+"Plugin 'sukima/xmledit'
 
 " LESS plugin
 Plugin 'groenewege/vim-less'
 
 " Jade plugin
-Plugin 'digitaltoad/vim-jade'
+"Plugin 'digitaltoad/vim-jade'
 
 " PHP Parser
 " Plugin 'nikic/PHP-Parser'
@@ -153,8 +153,8 @@ nnoremap <buffer> -p :call pdv#DocumentWithSnip()<CR>
 "let g:syntastic_python_python_exec = '~/bin/python'
 let g:syntastic_php_checkers = ["php","phpcs"]
 "let g:syntastic_gjslint_exec = '~/.local/bin/gjslint'
-let g:syntastic_javascript_checkers = ['jshint']
-"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 "let g:syntastic_javascript_gjslint_args = '--max_line_length 120'
 " The highlighting makes it difficult to find the cursor
