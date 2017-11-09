@@ -52,7 +52,8 @@ Plugin 'SirVer/ultisnips'
 "Plugin 'joonty/vdebug.git'
 
 " Multi-language syntax checking
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 
 " Plugin for relative numbers & switching
 " Plugin 'jeffkreeftmeijer/vim-numbertoggle'
@@ -151,14 +152,20 @@ nnoremap <buffer> -p :call pdv#DocumentWithSnip()<CR>
 
 " Syntastic plugin
 "let g:syntastic_python_python_exec = '~/bin/python'
-let g:syntastic_php_checkers = ["php","phpcs"]
+"let g:syntastic_php_checkers = ["php","phpcs"]
 "let g:syntastic_gjslint_exec = '~/.local/bin/gjslint'
 "let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 "let g:syntastic_javascript_gjslint_args = '--max_line_length 120'
 " The highlighting makes it difficult to find the cursor
-let g:syntastic_enable_highlighting = 0
+"let g:syntastic_enable_highlighting = 0
+
+" Ale plugin
+let g:ale_completion_enabled = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 
 " Ctrl-P plugin settings to ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
