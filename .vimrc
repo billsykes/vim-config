@@ -12,6 +12,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Vue.js syntax highlighting
+Plugin 'posva/vim-vue'
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -171,7 +174,7 @@ let g:ale_linters = {
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*\\node_modules\\*,*\\bower_components\\*,*\\reports\\*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|node_modules/|bower_components/|doc/|dist/|reports/|logs/'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|\.class|node_modules/|bower_components/|doc/|dist/|reports/|logs/'
 " Force Ctrl-P to only search from the root directory
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 0
@@ -233,6 +236,9 @@ nnoremap <expr> o getline('.') =~ '^\s*//' ? 'o<esc>S' : 'o'
 
 " For better pasting (so vim doesn't try to format what you're pasting)
 set pastetoggle=<F2>
+
+" For Vue syntax highlighting
+au BufNewFile,BufRead *.vue setf vue
 
 "Highlight the current word
 nnoremap <space> viw
