@@ -106,6 +106,12 @@ Plugin 'mxw/vim-jsx'
 " Plugin for autocompletion
 Plugin 'vim-scripts/AutoComplPop'
 
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
+
+" Plugin for displaying diff information
+Plugin 'airblade/vim-gitgutter'
+
 " Plugin for go langauge
 "Plugin 'fatih/vim-go'
 
@@ -174,7 +180,8 @@ let g:ale_linters = {
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*\\node_modules\\*,*\\bower_components\\*,*\\reports\\*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|\.class|node_modules/|bower_components/|doc/|dist/|reports/|logs/'
+set wildignore+=*\\deps\\*,*\\build\\*      " Elixir depedencies
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|\.class|node_modules/|bower_components/|doc/|dist/|reports/|logs/|deps/|_build/'
 " Force Ctrl-P to only search from the root directory
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 0
@@ -233,6 +240,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 inoremap <expr> <enter> getline('.') =~ '^\s*//' ? '<enter><esc>S' : '<enter>'
 nnoremap <expr> O getline('.') =~ '^\s*//' ? 'O<esc>S' : 'O'
 nnoremap <expr> o getline('.') =~ '^\s*//' ? 'o<esc>S' : 'o'
+
+" Alternate to using the escape key
+inoremap <silent> jj <C-c>:stopinsert<cr>
 
 " For better pasting (so vim doesn't try to format what you're pasting)
 set pastetoggle=<F2>
