@@ -101,7 +101,10 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugin 'svermeulen/vim-easyclip'
 
 " Plugin to provide syntax highlighting for React JSX files
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
+Plugin 'yuezk/vim-js'
+" Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'chemzqm/vim-jsx-improve'
 
 " Plugin for autocompletion
 Plugin 'vim-scripts/AutoComplPop'
@@ -181,7 +184,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*\\node_modules\\*,*\\bower_components\\*,*\\reports\\*
 set wildignore+=*\\deps\\*,*\\build\\*      " Elixir depedencies
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|\.class|node_modules/|bower_components/|doc/|dist/|reports/|logs/|deps/|_build/'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|\.class|node_modules/|bower_components/|coverage/|doc/|dist/|reports/|logs/|deps/|_build/'
 " Force Ctrl-P to only search from the root directory
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_follow_symlinks = 0
