@@ -101,10 +101,10 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugin 'svermeulen/vim-easyclip'
 
 " Plugin to provide syntax highlighting for React JSX files
-" Plugin 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
 Plugin 'yuezk/vim-js'
 " Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'chemzqm/vim-jsx-improve'
+" Plugin 'chemzqm/vim-jsx-improve'
 
 " Plugin for autocompletion
 Plugin 'vim-scripts/AutoComplPop'
@@ -256,3 +256,6 @@ au BufNewFile,BufRead *.vue setf vue
 "Highlight the current word
 nnoremap <space> viw
 colorscheme wombat256i
+
+command! BareOff set number | set relativenumber | NERDTree
+command! -bar BareOn set number! | set relativenumber! | NERDTreeClose
