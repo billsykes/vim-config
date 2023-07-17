@@ -10,7 +10,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'Stratus3D/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Vue.js syntax highlighting
 Plugin 'posva/vim-vue'
